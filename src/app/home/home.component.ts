@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit{
 
   open(element: any ,choose :any) {
     const dialogRef = this.dialog.open(BlogDialogComponent, {
+      width: '1000px',
+      maxWidth: '95vw',
       data: { blog: element, isUpdate: choose }
     });
   }
