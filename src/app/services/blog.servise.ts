@@ -14,7 +14,7 @@ export class BlogService extends BaseService {
   
 
   public getPosts() {
-   return this.base.getReq('posts');
+   return this.base.getReq('/posts');
     }
     
    public updatePosts(id:any ,data:any) {

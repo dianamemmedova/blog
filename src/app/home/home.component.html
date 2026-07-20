@@ -4,90 +4,33 @@
 
 <div class="container">
     <div class="row">
-    <div class="col-md-3">
-        <mat-card class="example-card" appearance="outlined">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-        </mat-card>
-    </div>
-    <div class="col-md-3">
-        <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-        </mat-card>
-    </div>
-    <div class="col-md-3">
-        <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-        </mat-card>
-    </div>
-    <div class="col-md-3">
-        <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-        </mat-card>
-    </div>
-    </div>
+        @for(post of blogData | slice: (page-1) * pageSize : page * pageSize; track post.id){
+            <div class="col-md-3 col-sm-6 mt-5">
+             <mat-card class="example-card" appearance="outlined">
+                <mat-card-header>
+                    <mat-card-title class="title">{{post.title}}</mat-card-title>
+                </mat-card-header>
+
+                <img mat-card-image src="./image{{post.imageId}}.jpg" alt="Photo of a Shiba Inu">
+                
+                <mat-card-content>
+                <p class="body">{{post.body}} </p>
+                </mat-card-content>
+                <mat-card-actions>
+                   <button (click)="open(post ,false)" mat-button>Görüntüle</button>
+                   <button (click)="open(post ,true)" mat-button>Düzenle</button>
+               </mat-card-actions>
+             </mat-card>
+            </div>
+        }
+    
+    </div>  
 </div>
+
+        <div class="pagination">
+        <ngb-pagination [(page)]="page"
+                        [pageSize]="pageSize"
+                        [collectionSize]="blogData.length" />
+
+        </div>
 

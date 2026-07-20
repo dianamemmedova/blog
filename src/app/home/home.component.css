@@ -9,3 +9,26 @@
   background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+.title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+}
+
+.body{
+     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-top: 20px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

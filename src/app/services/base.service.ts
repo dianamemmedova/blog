@@ -2,7 +2,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
+    
 export class BaseService {
   public baseUrl = 'http://localhost:3000';
 
