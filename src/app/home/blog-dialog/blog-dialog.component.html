@@ -14,15 +14,25 @@
 
 @if(!isUpdate){
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3" style="padding-left: 0;">
             <img src="./image{{imgUrl}}.jpg" alt="" style="width: 100%;">
         </div>
         <div class="col-md-6">
             <h2>{{title}}</h2>
             <p>{{body}}</p>
-        </div>
-        
+        </div> 
     </div>
+    @for(comment of commentData ; track comment.id){
+    <div class="row" style="background-color: lightgray; margin-bottom: 20px; padding: 20px;">
+        <div class="col-md-2">
+             <img src="./profile{{comment.userId}}.jpg" alt="" style="width: 30px; height: 30px; border-radius: 50%;">
+        </div>
+        <div class="col-md-10">
+            <h3>{{comment.name}}</h3>
+            <p>{{comment.body}}</p>
+        </div>
+    </div>
+}
 }
 
 @if(isUpdate){
